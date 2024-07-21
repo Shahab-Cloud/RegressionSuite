@@ -2,17 +2,17 @@
   "dev": {
     "dbotp_connectionstring": "Data Source = sqldb-jm-dev-01.database.windows.net;Database=CreditCoach-OTP;User ID=jmuser;Password=ykFZkq1Dnf7Y;",
     "db_connectionstring": "Data Source = sqldb-jm-dev-01.database.windows.net;Database=CreditCoach;User ID=jmuser;Password=ykFZkq1Dnf7Y;",
-    "storagebrowser_connectionstring": "DefaultEndpointsProtocol=https;AccountName=otpsdev01;AccountKey=6P/+NRXMOVdyvvuX7fL1cKw9u7fM5BCHQRtP74JWW1LceJeGQAUISc/DQPENxO+V65Cw5Z09td5J+ASthtFrSQ==;EndpointSuffix=core.windows.net"
+    "storagebrowser_connectionstring": ""
   },
   "preprod": {
     "dbotp_connectionstring": "Data Source = sqldb-jm-preprod-01.database.windows.net;Database=CreditCoach-OTP;User ID=jmuser;Password=hxCSBTX8mxo;",
     "db_connectionstring": "Data Source = sqldb-jm-preprod-01.database.windows.net;Database=CreditCoach;User ID=jmuser;Password=hxCSBTX8mxo;",
-    "storagebrowser_connectionstring": "DefaultEndpointsProtocol=https;AccountName=otpspreprodsa01;AccountKey=B9sdTHmLK7zZPsPo20P8yFFzas5mBQ/myJH0j2ZwwrZT43p7SVg5PJ4qZOE0Q9QlXk7dAbTJ0pVA+AStp/qc7g==;EndpointSuffix=core.windows.net"
+    "storagebrowser_connectionstring": "DefaultEndpointsProtocol=*********;AccountName=********;AccountKey=************;EndpointSuffix=********"
   },
   "prod": {
     "dbotp_connectionstring": "Data Source = sqldb-jm-prod-01.database.windows.net;Database=CreditCoach-OTP;User ID=jmadmin;Password=5M8HZ2gDBnl3;",
     "db_connectionstring": "Data Source = sqldb-jm-prod-01.database.windows.net;Database=CreditCoach;User ID=jmadmin;Password=5M8HZ2gDBnl3;",
-    "storagebrowser_connectionstring": "DefaultEndpointsProtocol=https;AccountName=otpsprodsa001;AccountKey=engPwYSC2Dqn63cwkAdpWI3+UzBfGqtXw27B2sCfbOXWTZYwwQTvYLFAF9BuM3K+oP0aBjBKADAK+AStprOQEQ==;EndpointSuffix=core.windows.net"
+    "storagebrowser_connectionstring": "DefaultEndpointsProtocol=********;AccountName=*********;AccountKey=**********;EndpointSuffix=******"
   }
 
 }
