@@ -1,0 +1,103 @@
+# .NET Desktop
+# Build and run tests for .NET Desktop or Windows classic desktop solutions.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+- name: System.Debug
+  value: true
+
+parameters:
+- name: Tests
+  displayName: TestCases
+  default: DTCC624_CanYouAffordYourDebt
+  values:
+  - DTCC_ValidateSettingPageFeild
+  - DTCC3484_OTPSserviceforNewChanges
+  - DTCC3484_OTPSserviceforRegistration
+  - DTCC624_CanYouAffordYourDebt
+  - DTCC633_UnderstandingMyScore
+  - DTCC634_yourCreditReport
+  - E2EAutoRegistrationOfUsers
+  - E2ERegistrationOfUsers
+  - ValidateCreditReportPage
+  - AllRegressionTCs
+
+
+jobs:
+# - job: build
+#   displayName: ${{ parameters.Tests }}
+#   steps:
+#   - script: echo building $(Build.BuildNumber)
+
+#   - task: NuGetToolInstaller@1
+
+
+- job: Run
+  displayName: ${{ parameters.Tests }}
+  steps:
+  - task: DotNetCoreCLI@2
+    displayName: Restore
+    inputs:
+      command: 'restore'
+      projects: '**/*.csproj'
+      feedsToUse: 'select'
+
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'test'
+      projects: '**/*.csproj'
+      arguments: '--filter Category=${{ parameters.Tests }}'
+    displayName: 'Run Selected Test Cases'
+    condition: succeededOrFailed()
+    continueOnError: true
+    
+
+  - script: |
+     dir /S D:\a\1\s
+    displayName: 'List All Directory Contents'
+    
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: "$(Build.SourcesDirectory)/ExtentReport/${{ parameters.Tests }}/"
+      artifact: 'ExtentReport'
+      publishLocation: 'pipeline'
+    
+  # - task: PublishBuildArtifacts@1
+  #   inputs:
+  #     PathtoPublish: '$(Build.ArtifactStagingDirectory)/TestResources/ExtentReport/${{ parameters.Tests }}/*.html'
+  #     ArtifactName: 'ExtentReport/${{ parameters.Tests }}/'
+  #     publishLocation: 'Container'
+    
+  # - task: PublishPipelineArtifact@1
+  #   displayName: 'Publish Pipeline Artifact'
+  #   inputs:
+  #     targetPath: '$(Pipeline.Workspace)/TestResources/ExtentReport/${{ parameters.Tests }}/*.html'
+  #     artifact: 'Extent Report'
+    
+
+  # - task: DownloadSecureFile@1
+  #   name: ssh_private_key
+  #   displayName: 'Download private_key'
+  #   inputs:
+  #     secureFile: 'shahab_id_rsa' 
+
+  # - script: |
+  #     echo '####### copy ssh key ########'
+  #     mkdir -p D:\a\1\s\.ssh
+  #     scp $(ssh_private_key.secureFilePath) D:\a\1\s\.ssh\id_rsa
+
+  # - task: cURLUploader@2
+  #   inputs:
+  #     files: 'TestResources/ExtentReport/${{ parameters.Tests }}/index.html'
+  #     authType: 'UserAndPass'
+  #     username: 'manyas'
+  #     password: 'inprfik3peymvtk7mc6eh4gi7incln3gftuohecza7um7hda5ztq'
+  #     url: 'https://IDMDebtBusters@dev.azure.com/IDMDebtBusters/IDM.DigiTech.Services/Digitech-Services-JM'
+  #     remotePath: 'TestResources/ExtentReport/${{ parameters.Tests }}/index.html'

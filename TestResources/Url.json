@@ -1,0 +1,4 @@
+{
+  "dev":  "https://app-jm-ui-dev-002.azurewebsites.net/register",
+  "preprod": "https://app-jm-ui-preprod-002.azurewebsites.net/"
+}
