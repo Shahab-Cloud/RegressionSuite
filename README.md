@@ -1,37 +1,19 @@
-# RegressionSuite
-Its is basic practice suite to show the work done on the application.
+SeleniumExample - Using Selenium with C#.NET
+===============
 
-In this test cases inputs are present in .xlsx file and derived from their and having same name as the test class name (test case name). After test run project uses extent report for reporting the test results and its steps screenshot.
+This solution demonstrates automated testing web pages with Selenium and C#.NET. It can also be used as a template for new Selenium test projects.
 
+Three tests are included that run tests on the publically available demo website Altoro Mutual available at http://demo.testfire.net/. The tests test logging onto the website and transferring an amount between two accounts.
 
-## Folder Structure
+The tests can be executed on three browsers: Firefox, Chrome and Internet Explorer. The driver can be selected using 
+the appsetting *DriverToUse* in the app.config file. To run the tests on Internet Explorer 11, the registry must be updated first so that the driver can maintain a connection to the browser. Import the registry file [configure_ie_11_for_selenium_iedriverserver.reg](https://github.com/atosorigin/SeleniumExample/blob/master/configure_ie_11_for_selenium_iedriverserver.reg) to achieve this. 
 
+To run the Selenium tests, download the solution and run the NUnit tests. All selenium dependencies are included in the solution. Run the NUnit tests using Resharper ( http://www.jetbrains.com/resharper ), NUnit ( http://www.nunit.org ) or ContinuousTests ( http://continuoustests.com ).
 
-**Data** - Contains .xlsx input files with the naming covention same as the test case name.
+The tests are structured according to the [Page Object Pattern](https://code.google.com/p/selenium/wiki/PageObjects).
 
-**ExtentReport** - Contains .html output report with the naming covention same as the test case name with the created date and time.
+Out of the box Selenium supports locating elements using the element id or an xpath selector. The extension method *FindElementByJQuery* has been added to SeleniumExample with which elements can be located using a more versatile JQuery selector. Example:
 
-**MainResources** - Contains methods which are related to database and common to all test cases to give instructions to the test cases. Example:- can run script on dev and preprod by just changing the environment string value  in the properties.cs file.
+    _driver.FindElementByJQuery("input[name='btnSubmit']")
 
-**MainUtils** - Contains classes which are used in all test cases or we can say that it contains method which are building block for all test cases.
-
-**Test** - This folder is design on the basis of POM (Page Object Model). In this three folders are available as per below:-
-
-1. *Pages* - Conatins of xpath or css of elements as per the page name.
-1. *Steps* - Contains method performing on the pages during test run.
-1. *Tests* - Contains Regression Test in it.
-
-**TestResources** - Others things required by the projects are URL, Database connection strings, DB Quiries etc are available in this folder.
-
-### Language
-
-C#
-
-### Tools
-
-Selenium, Nunit, Extent Report, AzureDevops, RestSharp
-
-### Database
-
-SQL, AzureDevops (Blob-Containers, Storage Browser)
-
+Alexander van Trijffel
