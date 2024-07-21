@@ -44,7 +44,7 @@ namespace JMAutomation.MainResources
         {
             string path = GenericUtils.getDataPath("TestResources");
             JObject json = GenericUtils.GetJson(path + "\\Database.json");
-            string DBCCconnectionString = json[properties.environment]["storagebrowser_connectionstring"].ToString();
+            string DBCCconnectionString = json[properties.environment][""].ToString();
             return DBCCconnectionString;
         }
 
