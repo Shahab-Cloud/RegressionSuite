@@ -1,9 +1,6 @@
 ﻿using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
-using DocumentFormat.OpenXml.Spreadsheet;
 using JMAutomation;
-using JMAutomation.MainResources;
-using JMAutomation.MainUtils;
 
 namespace JM.MainUtils
 {
