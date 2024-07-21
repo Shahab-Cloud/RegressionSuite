@@ -1,15 +1,4 @@
 {
-  "dev": {
-    "dbotp_connectionstring": "Data Source = sqldb-jm-dev-01.database.windows.net;Database=CreditCoach-OTP;User ID=jmuser;Password=ykFZkq1Dnf7Y;",
-    "db_connectionstring": "Data Source = sqldb-jm-dev-01.database.windows.net;Database=CreditCoach;User ID=jmuser;Password=ykFZkq1Dnf7Y;",
-  },
-  "preprod": {
-    "dbotp_connectionstring": "Data Source = sqldb-jm-preprod-01.database.windows.net;Database=CreditCoach-OTP;User ID=jmuser;Password=hxCSBTX8mxo;",
-    "db_connectionstring": "Data Source = sqldb-jm-preprod-01.database.windows.net;Database=CreditCoach;User ID=jmuser;Password=hxCSBTX8mxo;",
-  },
-  "prod": {
-    "dbotp_connectionstring": "Data Source = sqldb-jm-prod-01.database.windows.net;Database=CreditCoach-OTP;User ID=jmadmin;Password=5M8HZ2gDBnl3;",
-    "db_connectionstring": "Data Source = sqldb-jm-prod-01.database.windows.net;Database=CreditCoach;User ID=jmadmin;Password=5M8HZ2gDBnl3;",
-  }
-
+  "dev": { },
+  "preprod": { }
 }
